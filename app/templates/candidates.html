@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>List of Candidates:</h1>
+  <ul>
+    {% for candidate in candidates %}
+      <li>{{ candidate.nom }} -{{ candidate.party }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Election App</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="{% url 'app:home' %}">Acceuil</a></li>
+          <li><a href="{% url 'app:get_candidates' %}">Candidats</a></li>
+          <li><a href="{% url 'app:vote' %}">Vote</a></li>
+          <li><a href="{% url 'app:get_votes' %}">Resultats</a></li>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'app:logout' %}">Logout</a></li>
+          {% else %}
+            <li><a href="{% url 'app:login' %}">Login</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </body>
+</html>
