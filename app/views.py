@@ -39,10 +39,7 @@ def get_votes(request):
     gcp_url = 'https://europe-west1-rare-sunrise-381713.cloudfunctions.net/function-4'
     print(gcp_url)
     response = requests.get(gcp_url)
-
-    # Renvoyer la réponse de GCP au format JSON
-    #return JsonResponse(response.json())
-    votes = Vote.objects.all()
+    votes = response.json()['votes']
     context={'votes' : votes} 
     return render(request, 'results.html', context=context)
 

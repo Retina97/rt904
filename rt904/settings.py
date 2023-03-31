@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'rt904.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '127.0.0.1',
+        'HOST': '34.76.135.172',
         'USER': 'root',
-        #'PASSWORD': 'SqT^tp,fot{q}=}Y',
-        'PASSWORD': '',
+        'PASSWORD': 'SqT^tp,fot{q}=}Y',
+        #'PASSWORD': '',
         'NAME': 'rt904',
         'PORT': '3306',
         'OPTIONS': {
