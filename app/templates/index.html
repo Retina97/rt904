@@ -1,7 +1,7 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+
+<head>
     <meta charset="utf-8">
     <title>Vote en ligne</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -30,30 +30,31 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
+
 <body>
-  <div class="container-fluid position-relative d-flex p-0">
-      <!-- Spinner Start -->
-      <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-          <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-              <span class="sr-only">Loading...</span>
-          </div>
-      </div>
-      <!-- Spinner End -->
+    <div class="container-fluid position-relative d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
 
 
-      <!-- Sidebar Start -->
-      <div class="sidebar pe-1 pb-3">
-          <nav class="navbar bg-secondary navbar-dark">
-              <a href="{% url 'app:home' %}" class="navbar-brand mx-4 mb-3">
-                  <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Vote en ligne</h3>
-              </a>
-              <div class="navbar-nav w-100">
-                  <a href="{% url 'app:home' %}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Accueil</a>
+        <!-- Sidebar Start -->
+        <div class="sidebar pe-1 pb-3">
+            <nav class="navbar bg-secondary navbar-dark">
+                <a href="index.html" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Vote en ligne</h3>
+                </a>
+                <div class="navbar-nav w-100">
+                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Accueil</a>
 
-                  <a  href="{% url 'app:get_candidates' %}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Liste des candidats</a>
-                  <a href="{% url 'app:vote' %}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Votez!</a>
-                  <a href="{% url 'app:get_votes' %}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Resultat des votes</a>
-                  
+                    <a href="widget.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Liste des candidats</a>
+                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Votez!</a>
+                    <a href="table.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Resultat des votes</a>
+                    
                 </div>
             </nav>
         </div>
@@ -79,17 +80,12 @@
                         
                     </div>
                     
-                    
-<div class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-    {% if user.is_authenticated %}
-      <span class="d-none d-lg-inline-flex"><a class="nav-link"  href="{% url 'app:logout' %}">Se déconnecter </a> </span>
-      {% else %}
-      <span class="d-none d-lg-inline-flex"><a class="nav-link"   href="{% url 'app:login' %}">Se connecter </a> </span>
-      {% endif %}
-      
-  </a>
-</div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            
+                            <span class="d-none d-lg-inline-flex">Se déconnecter </span>
+                        </a>
+                    </div>
                 </div>
             </nav>
             <!-- Navbar End -->
