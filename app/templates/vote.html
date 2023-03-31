@@ -1,27 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<br>
-<h2>Voter pour votre Candidat:</h2>
+
 <form method="post">
-    {% csrf_token %}
-    <div class="row">
-      {% for candidate in candidates %}
-      <div class="col-md-6 mb-3">
-        <div class="input-group">
-          <div class="input-group-text">
-            <input type="radio" id="candidate_{{ candidate.id }}" name="candidate_id" value="{{ candidate.id }}">
-            <label for="candidate_{{ candidate.id }}" class="ms-2">{{ candidate.nom }} - {{ candidate.party }}</label>
+  {% csrf_token %}
+<div class="container-fluid pt-4 px-4">
+  <div class="row g-4">
+      <div class="col-sm-12 col-xl-8">
+          <div class="bg-secondary rounded h-100 p-4">
+              <h6 class="mb-4">Votez pour votre candidat!</h6>
+              <form>
+                
+                  <div class="mb-3">
+                    {% for candidate in candidates %}
+
+                      <div class="col-sm-10">
+                          <div class="form-check">
+                            <input type="radio" id="candidate_{{ candidate.id }}" name="candidate_id" value="{{ candidate.id }}">
+                            <label for="candidate_{{ candidate.id }}" class="ms-2">{{ candidate.nom }} - {{ candidate.party }}</label>
+                          </div>
+                          
+                      </div>
+                      {% endfor %}  
+
+                  </div>
+                  <div class="col-12 mb-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                 
+              </form>
           </div>
-        </div>
       </div>
-      {% endfor %}
-    </div>
-    <div class="row">
-      <div class="col-12 mb-3">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </div>
-  </form>
-  
+
+  </div>
+</div>
 {% endblock %}
