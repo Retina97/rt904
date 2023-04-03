@@ -137,9 +137,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 """AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-)
+)"""
 
-AUTH_USER_MODEL = 'rt904.CustomUser'"""
+AUTH_USER_MODEL = 'app.Voter'
 
 
 # Google Cloud Configuration

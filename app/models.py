@@ -16,7 +16,9 @@ class Voting_bureau(models.Model):
     def __str__(self):
         return self.name
 
-class Voter(models.Model):
+from django.contrib.auth.models import AbstractUser
+
+class Voter(AbstractUser):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     password = models.CharField(max_length=255)

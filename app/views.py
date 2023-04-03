@@ -6,21 +6,36 @@ from django.http import JsonResponse
 from google.cloud import functions_v1
 import requests
 import json
+from django.contrib.auth.decorators import login_required
 
 
 def login(request):
     if request.method == 'POST':
-        username = request.POST['username']
+        email = request.POST['email']
         password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(request, username=email, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('')
         else:
             return render(request, 'login.html', {'error': 'Invalid username or password'})
     else:
         return render(request, 'login.html')
-    
+
+def signup(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+        user = authenticate(request, username=email, password=password)
+        if user is not None:
+            signup(request, user)
+            return redirect('')
+        else:
+            return render(request, 'signup.html', {'error': 'Invalid username or password'})
+    else:
+        return render(request, 'signup.html')
+
+
 def home(request):
     return render(request, 'home.html')
 
@@ -42,7 +57,7 @@ def get_votes(request):
     votes = response.json()['votes']
     context={'votes' : votes} 
     return render(request, 'results.html', context=context)
-
+@login_required
 def vote(request):
     if request.method == 'POST':
         candidate_id = int(request.POST['candidate_id'])
